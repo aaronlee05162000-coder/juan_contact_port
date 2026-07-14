@@ -126,6 +126,12 @@ code{font-family:var(--mono);font-size:.85em;color:var(--emerald-hi)}
   .project__media,.service__visual{transform:perspective(900px) rotateX(var(--tx,0deg)) rotateY(var(--ty,0deg));transition:transform .25s ease-out}
 }
 .hero__canvas{display:none}
+
+@keyframes workFlow{
+  0%{background-position:50% 45%,55% 45%}
+  50%{background-position:45% 50%,60% 40%}
+  100%{background-position:50% 45%,55% 45%}
+}
 .hero__fallback{position:absolute;inset:0;background:
   radial-gradient(60% 80% at 50% 42%,rgba(16,185,129,.16),transparent 62%),
   radial-gradient(120% 60% at 50% 110%,rgba(4,61,43,.5),transparent 70%),
@@ -273,7 +279,9 @@ code{font-family:var(--mono);font-size:.85em;color:var(--emerald-hi)}
 
 /* ============ WORK ============ */
 .work{position:relative;padding:clamp(100px,15vh,180px) 0;overflow:hidden}
-.work__media{position:absolute;inset:-12% 0;will-change:transform}
+.work__media{position:absolute;inset:-12% 0;will-change:transform;overflow:hidden}
+.work__media::before{content:"";position:absolute;inset:0;z-index:0;background-image:url("../assets/juan3.png"),url("../assets/Juan4.png");background-size:cover,cover;background-position:center center,55% 45%;opacity:.28;pointer-events:none;filter:contrast(1.04) saturate(1.1);animation:workFlow 48s linear infinite}
+.work__media .bg-image{position:absolute;z-index:1}
 .section-head--onmedia{position:relative;z-index:2}
 .work__grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:52px var(--pad) 0;max-width:1400px;margin:0 auto}
 .workcard{border:1px solid var(--line);border-radius:var(--radius);background:rgba(10,15,16,.72);backdrop-filter:blur(8px);padding:26px;display:grid;gap:12px;position:relative;transition:transform .5s var(--ease),border-color .5s,background .5s}

@@ -10,7 +10,7 @@ window.SITE_CONFIG = {
     heroOrbit:  "assets/juan2.png",   // hero background image
     builder:    "assets/Juan4.png",    // Three Pillars background image
     expert:     "assets/juan3.png",    // Work section background image
-    closer:     "assets/juan1.png",    // Finale background image
+    closer:     "assets/juan11.png",    // Finale background image
   },
   videoDuration: 8,   // seconds per clip
 
@@ -28,11 +28,11 @@ window.SITE_CONFIG = {
   },
 
   /* ---- CONTACT ---- */
-  email:       "maltoyeet@gmail.com",                          // from CV ✓
-  bookingUrl:  "https://calendly.com/automatewithjuan/30min",  // your Calendly link ✓
-  linkedinUrl: "https://www.linkedin.com/in/your-handle",
-  youtubeUrl:  "https://www.youtube.com/@your-handle",
-  githubUrl:   "",                                   // optional — leave "" to hide
+  email:       "juanrodriguez.crmdev@gmail.com",                          // from CV ✓
+  bookingUrl:  "https://calendly.com/juanrodriguez-crmdev/30min",  // your Calendly link ✓
+  linkedinUrl: "",
+  youtubeUrl:  "www.youtube.com/@juanrodriguezcrmdev",  // optional — leave "" to hide
+  githubUrl:   "www.github.com/juanrodriguezcrmdev",                                   // optional — leave "" to hide
   twitterUrl:  "",                                   // optional — leave "" to hide
 
   /* ---- HERO STATS (real figures — ~7 months of project work) ---- */
@@ -345,14 +345,14 @@ window.SITE_CONFIG = {
   /* ---- CERTIFICATIONS ----
      Shown in the Certifications section; click opens full size.
      Add new entries here as you earn them.                    */
-  certificationsNote: "Trained and certified through the Tara AI Community by RJ Villamer (Kuys RJ) — n8n Ambassador in the Philippines and Certified GoHighLevel Admin.",
+  certificationsNote: "Trained and certified through the Tara AI Community by RJ Villamer (Kuys RJ) — n8n Ambassador and Certified GoHighLevel Admin.",
   certifications: [
-    { title: "AI Automation with n8n",                    issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "November 2025", image: "assets/certs/n8n.jpg" },
-    { title: "No Code Automation with Make.com",          issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/make.jpg" },
-    { title: "No Code Automation with Zapier",            issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/zapier.jpg" },
-    { title: "HighLevel CRM",                             issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/ghl.jpg" },
-    { title: "Prompt Engineering",                        issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/prompt_engineering.jpg" },
-    { title: "WordPress Web Page Building & Maintenance", issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/wordpress.jpg" },
+    { title: "AI Automation with n8n",                    issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "November 2025", image: "assets/certs/n8n.png" },
+    { title: "No Code Automation with Make.com",          issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/make.png" },
+    { title: "No Code Automation with Zapier",            issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/zapier.png" },
+    { title: "HighLevel CRM",                             issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/ghl.png" },
+    { title: "Prompt Engineering",                        issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/prompt_engineering.png" },
+    { title: "WordPress Web Page Building & Maintenance", issuer: "Tara AI Community · Technical Virtual Assistants PH", date: "December 2025", image: "assets/certs/wordpress.png" },
   ],
 
   /* ---- CHAT QUICK ANSWERS (scripted replies in the chat widget) ---- */
