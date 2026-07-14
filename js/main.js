@@ -906,9 +906,9 @@
 
   function chatSystemPrompt() {
     return [
-      "You are the friendly AI assistant on the portfolio website of Bill M. Malto, an AI Automation Specialist.",
-      "STRICT GROUNDING RULE: Answer using ONLY the facts in the KNOWLEDGE BASE below (from Bill's CV and this portfolio website). Do NOT invent, assume, estimate, or infer anything that is not explicitly stated. If a question cannot be answered from the knowledge base, reply exactly along these lines: \"That detail isn't included in Bill's CV or portfolio — you can ask him directly by booking a free call or emailing " + (CFG.email || "him") + ".\" Never guess.",
-      "A plain greeting like \"hi\" or \"hello\" needs no facts — greet them warmly and offer to answer questions about Bill's experience, skills, projects, or to book a call.",
+      "You are the friendly AI assistant on the portfolio website of Juan C R, an AI Automation Specialist.",
+      "STRICT GROUNDING RULE: Answer using ONLY the facts in the KNOWLEDGE BASE below (from Juan's CV and this portfolio website). Do NOT invent, assume, estimate, or infer anything that is not explicitly stated. If a question cannot be answered from the knowledge base, reply exactly along these lines: \"That detail isn't included in Juan's CV or portfolio — you can ask him directly by booking a free call or emailing " + (CFG.email || "him") + ".\" Never guess.",
+      "A plain greeting like \"hi\" or \"hello\" needs no facts — greet them warmly and offer to answer questions about Juan's experience, skills, projects, or to book a call.",
       "=== KNOWLEDGE BASE ===",
       "IDENTITY: Juan C R, AI Automation Specialist. Based in Pasig City, Metro Manila, Philippines. Contact email: " + (CFG.email || "see the website footer") + ". Languages: English and Filipino.",
       "PROFILE: Juan builds intelligent, no-code systems that save businesses time and drive measurable results. He designs and deploys automated workflows using n8n, Make.com, Zapier, and Claude, with CRM and marketing automation in GoHighLevel. Years of BPO technical and customer service experience plus hands-on AI/LLM training work give him both the builder's and the end-user's perspective.",
@@ -919,8 +919,8 @@
       "PORTFOLIO / PROOF OF WORK: 8+ automation projects completed, 300+ hours saved for clients, 30%+ average efficiency gain, 6+ businesses supported. The website's Projects section has real case studies organized by platform — n8n, Make.com, Zapier, and GoHighLevel (examples include an AI voice receptionist, AI appointment booking systems, lead qualification and follow-up automations, AI customer support agents, and content automation).",
       "=== END KNOWLEDGE BASE ===",
       "CV DOWNLOAD: When someone asks for Juan's CV, resume, or to download his background, tell them a Download CV button will appear right below your reply.",
-      "BOOKING: Visitors can book a free 30-minute automation call with the 'Book a Free Call' button, or email Bill at " + (CFG.email || "the address in the footer") + ". For pricing, timelines, availability, or specific project quotes, recommend booking the free call (do not invent any figures).",
-      "STYLE: Keep replies short (1-3 sentences), warm and professional, plain text only (no markdown). If asked something unrelated to Bill, his work, or automation, politely steer back to how Bill can help."
+      "BOOKING: Visitors can book a free 30-minute automation call with the 'Book a Free Call' button, or email Juan at " + (CFG.email || "the address in the footer") + ". For pricing, timelines, availability, or specific project quotes, recommend booking the free call (do not invent any figures).",
+      "STYLE: Keep replies short (1-3 sentences), warm and professional, plain text only (no markdown). If asked something unrelated to Juan, his work, or automation, politely steer back to how Juan can help."
     ].join(" ");
   }
 
@@ -935,7 +935,7 @@
   }
 
   function emailFallback(text) {
-    botSay("I couldn't reach the chat service just now — opening your email app so this reaches Bill directly.");
+    botSay("I couldn't reach the chat service just now — opening your email app so this reaches Juan directly.");
     var subject = encodeURIComponent("Website inquiry — automation");
     var body = encodeURIComponent(text + "\n\n— sent from the portfolio website chat");
     setTimeout(function () {
@@ -958,7 +958,7 @@
 
     var useProxy = !AICHAT.apiKey;
     /* Same-origin /api/chat exists on every Vercel-served domain (default
-       *.vercel.app AND any custom domain like automatewithbill.dev), which
+       *.vercel.app AND any custom domain like automatewithjuan.dev), which
        avoids CORS. GitHub Pages has no serverless function, so it calls the
        absolute Vercel proxy cross-origin (that origin is CORS-allowlisted). */
     var proxyUrl = /\.github\.io$/.test(location.hostname)
@@ -991,7 +991,7 @@
         if (/\b(cv|resume|résumé|curriculum vitae|download)\b/i.test(text + " " + reply)) {
           var dl = document.createElement("a");
           dl.className = "chat__bookbtn";
-          dl.href = "assets/Bill-Malto-CV.pdf";
+          dl.href = "assets/Juan-C-R-CV.pdf";
           dl.setAttribute("download", "");
           dl.textContent = "Download CV (PDF)";
           chatLog.appendChild(dl);

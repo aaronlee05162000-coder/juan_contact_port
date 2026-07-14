@@ -7,10 +7,10 @@ window.SITE_CONFIG = {
      Paste the final .mp4 URLs here when each render completes.
      Leave "" to show the styled fallback backdrop instead.   */
   videos: {
-    heroOrbit:  "assets/videos/hero-orbit.mp4",   // Clip 1 — 360° orbit, scroll-scrubbed hero ✓
-    builder:    "assets/videos/builder.mp4",      // Clip 2 — desk + holographic workflows (Three Pillars bg) ✓
-    expert:     "assets/videos/expert.mp4",       // Clip 3 — automation studio lateral move (Work bg) ✓
-    closer:     "assets/videos/closer.mp4",       // Clip 4 — walk toward camera, screens flare (Finale bg) ✓
+    heroOrbit:  "assets/juan2.png",   // hero background image
+    builder:    "assets/Juan4.png",    // Three Pillars background image
+    expert:     "assets/juan3.png",    // Work section background image
+    closer:     "assets/juan1.png",    // Finale background image
   },
   videoDuration: 8,   // seconds per clip
 
