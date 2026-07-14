@@ -5,10 +5,10 @@
    ============================================================ */
 
 const ALLOWED_ORIGINS = [
-  "https://bill-malto-portfolio.vercel.app",
-  "https://www.automatewithbill.dev",
-  "https://automatewithbill.dev",
-  "https://automatewithbill-code.github.io",
+  "https://juan-C-portfolio.vercel.app",
+  "https://www.automatewithjuan.dev",
+  "https://automatewithjuan.dev",
+  "https://automatewithjuan-code.github.io",
   "http://localhost:8000",
 ];
 

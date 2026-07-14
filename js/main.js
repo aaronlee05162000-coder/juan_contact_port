@@ -1,5 +1,5 @@
 /* ============================================================
-   BILL MALTO — site engine
+   Juan C R — site engine
    Lenis smooth scroll · GSAP ScrollTrigger · video scrubbing
    ============================================================ */
 (function () {
@@ -148,34 +148,70 @@
     });
   });
 
-  /* ---------- Video helpers ---------- */
-  function attachVideo(id, url, wrapClassTarget, wrapClass) {
-    var v = document.getElementById(id);
-    if (!v) return null;
-    if (!url) { v.remove(); return null; }
-    /* data-saver: on small screens don't pre-download full clips */
-    if (mq("(max-width: 767px)").matches && v.getAttribute("preload") === "auto") v.preload = "metadata";
-    v.src = url;
-    v.addEventListener("loadeddata", function () {
-      v.classList.add("is-ready");
+  /* ---------- Media helpers ---------- */
+  function attachMedia(id, url, wrapClassTarget, wrapClass) {
+    var el = document.getElementById(id);
+    if (!el) return null;
+    if (!url) { el.remove(); return null; }
+    var isImage = /\.(png|jpe?g|gif|webp|avif)$/i.test(url);
+    if (isImage) {
+      el.src = url;
+      el.addEventListener("load", function () {
+        el.classList.add("is-ready");
+        if (wrapClassTarget && wrapClass) wrapClassTarget.classList.add(wrapClass);
+      });
+      el.addEventListener("error", function () {
+        console.warn("[site] media failed to load: " + id + " — showing fallback backdrop.");
+        el.remove();
+      });
+      return el;
+    }
+    if (mq("(max-width: 767px)").matches && el.getAttribute("preload") === "auto") el.preload = "metadata";
+    el.src = url;
+    el.addEventListener("loadeddata", function () {
+      el.classList.add("is-ready");
       if (wrapClassTarget && wrapClass) wrapClassTarget.classList.add(wrapClass);
     });
-    v.addEventListener("error", function () {
+    el.addEventListener("error", function () {
       console.warn("[site] video failed to load: " + id + " — showing fallback backdrop.");
-      v.remove();
+      el.remove();
     });
-    return v;
+    return el;
   }
 
   var heroSection = document.querySelector(".hero");
-  var heroVideo = attachVideo("heroVideo", CFG.videos && CFG.videos.heroOrbit, heroSection, "hero--hasvideo");
-  var builderVideo = attachVideo("builderVideo", CFG.videos && CFG.videos.builder);
-  var expertVideo = attachVideo("expertVideo", CFG.videos && CFG.videos.expert);
-  var closerVideo = attachVideo("closerVideo", CFG.videos && CFG.videos.closer);
+  var heroVideo = attachMedia("heroVideo", CFG.videos && CFG.videos.heroOrbit, heroSection, "hero--hasvideo");
+  var builderVideo = attachMedia("builderVideo", CFG.videos && CFG.videos.builder);
+  var expertVideo = attachMedia("expertVideo", CFG.videos && CFG.videos.expert);
+  var closerVideo = attachMedia("closerVideo", CFG.videos && CFG.videos.closer);
+
+  function animateImageSection(el, selector) {
+    if (!hasGSAP || !el || el.tagName !== "IMG") return;
+    var section = document.querySelector(selector);
+    if (!section) return;
+    gsap.fromTo(el, { scale: 1.14, y: 40, rotation: 0.8, opacity: 0.92 }, {
+      scale: 1.06,
+      y: 0,
+      rotation: 0,
+      opacity: 1,
+      duration: 0.85,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top bottom",
+        end: "top center",
+        scrub: true,
+        invalidateOnRefresh: true
+      }
+    });
+  }
+  animateImageSection(builderVideo, ".pillars");
+  animateImageSection(expertVideo, ".work");
+  animateImageSection(closerVideo, ".finale");
 
   /* Background clips: play only while on screen (battery-friendly). */
   [builderVideo, expertVideo, closerVideo].forEach(function (v) {
-    if (!v) return;
+    if (!v || v.tagName !== "VIDEO") return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { v.play().catch(function () {}); }
@@ -230,7 +266,7 @@
     /* Smooth video seek loop */
     var lastSeek = 0;
     gsap.ticker.add(function () {
-      if (heroVideo && heroVideo.readyState >= 2 && heroVideo.duration) {
+      if (heroVideo && heroVideo.tagName === "VIDEO" && heroVideo.readyState >= 2 && heroVideo.duration) {
         var target = heroProgress * (heroVideo.duration - 0.05);
         var cur = heroVideo.currentTime;
         var next = cur + (target - cur) * 0.14;           /* lerp for silky scrubbing */
@@ -238,6 +274,9 @@
           var now = performance.now();
           if (now - lastSeek > 16) { heroVideo.currentTime = next; lastSeek = now; }
         }
+      } else if (heroVideo && heroVideo.tagName === "IMG") {
+        var p = heroProgress;
+        heroVideo.style.setProperty("--img-transform", "scale(" + (1.04 + p * 0.06).toFixed(4) + ") translateY(" + (p * 16).toFixed(2) + "px)");
       }
       /* Kinetic type synchronized with the same scroll progress */
       if (!introDone) return;
@@ -250,7 +289,7 @@
       var content = document.querySelector(".hero__content");
       if (content) content.style.opacity = String(1 - Math.max(0, (p - 0.72)) / 0.28);
     });
-  } else if (heroVideo) {
+  } else if (heroVideo && heroVideo.tagName === "VIDEO") {
     /* Reduced motion / no GSAP: park on a representative frame */
     heroVideo.addEventListener("loadeddata", function () { heroVideo.currentTime = 1.2; });
   }
@@ -798,9 +837,9 @@
     requestAnimationFrame(tickField);
   })();
 
-  /* ============================================================
-     CHAT WIDGET — "Chat with Bill"
-     ============================================================ */
+    /* ============================================================
+      CHAT WIDGET — "Chat with Juan"
+      ============================================================ */
   var chatToggle = document.getElementById("chatToggle");
   var chatPanel = document.getElementById("chatPanel");
   var chatClose = chatPanel.querySelector(".chat__close");
@@ -842,11 +881,11 @@
       botSay("Great — opening my calendar so you can grab a slot.");
       if (CFG.bookingUrl) setTimeout(function () { closeChat(); openBooking(); }, 900);
     } else if (q === "cv") {
-      botSay("Of course — here's Bill's CV as a PDF.");
+      botSay("Of course — here's Juan's CV as a PDF.");
       setTimeout(function () {
         var dl = document.createElement("a");
         dl.className = "chat__bookbtn";
-        dl.href = "assets/Bill-Malto-CV.pdf";
+        dl.href = "assets/Juan-C-R-CV.pdf";
         dl.setAttribute("download", "");
         dl.textContent = "Download CV (PDF)";
         chatLog.appendChild(dl);
@@ -871,15 +910,15 @@
       "STRICT GROUNDING RULE: Answer using ONLY the facts in the KNOWLEDGE BASE below (from Bill's CV and this portfolio website). Do NOT invent, assume, estimate, or infer anything that is not explicitly stated. If a question cannot be answered from the knowledge base, reply exactly along these lines: \"That detail isn't included in Bill's CV or portfolio — you can ask him directly by booking a free call or emailing " + (CFG.email || "him") + ".\" Never guess.",
       "A plain greeting like \"hi\" or \"hello\" needs no facts — greet them warmly and offer to answer questions about Bill's experience, skills, projects, or to book a call.",
       "=== KNOWLEDGE BASE ===",
-      "IDENTITY: Bill M. Malto, AI Automation Specialist. Based in Pasig City, Metro Manila, Philippines. Contact email: " + (CFG.email || "see the website footer") + ". Languages: English and Filipino.",
-      "PROFILE: Bill builds intelligent, no-code systems that save businesses time and drive measurable results. He designs and deploys automated workflows using n8n, Make.com, Zapier, and Claude, with CRM and marketing automation in GoHighLevel. Years of BPO technical and customer service experience plus hands-on AI/LLM training work give him both the builder's and the end-user's perspective.",
+      "IDENTITY: Juan C R, AI Automation Specialist. Based in Pasig City, Metro Manila, Philippines. Contact email: " + (CFG.email || "see the website footer") + ". Languages: English and Filipino.",
+      "PROFILE: Juan builds intelligent, no-code systems that save businesses time and drive measurable results. He designs and deploys automated workflows using n8n, Make.com, Zapier, and Claude, with CRM and marketing automation in GoHighLevel. Years of BPO technical and customer service experience plus hands-on AI/LLM training work give him both the builder's and the end-user's perspective.",
       "CORE SKILLS: AI automation with n8n, Make.com, Zapier (workflow design, triggers, multi-app integrations); AI tools and LLMs: Claude (AI-assisted workflows, prompt design, content and data processing); CRM and marketing: GoHighLevel (pipelines, lead nurturing, campaign and follow-up automation); integrations: APIs, webhooks, third-party tools, data entry and management automation; support and data: technical/customer support via chat and email, AI data annotation across image, video, audio, and text.",
       "WORK EXPERIENCE: (1) No-Code AI Automation Specialist — Freelance, February 2025 to present. Designs and delivers end-to-end AI automation solutions with n8n, Make.com, Zapier, and GoHighLevel; builds AI-assisted workflows with Claude; implements CRM and marketing automation; integrates third-party tools and APIs. (2) AI Data Annotator, LLM Training — 6-month project-based contract, 2026 to present (concurrent with freelance work). Annotates and evaluates multimodal datasets (image, video, audio, text) to train and improve large language models under strict quality guidelines. (3) Technical & Customer Service Representative — December 2019 to January 2025, at WNS Philippines, Sutherland Global Services, and Concentrix CVG Philippines (BPO). Provided technical and customer support via chat and email for U.S.-based clients; maintained high customer satisfaction in high-volume environments.",
       "EDUCATION: BS in Information Technology, Computer Arts & Technological College Inc., 2011 to 2016.",
       "CERTIFICATIONS (Tara AI Community / Technical Virtual Assistants PH): AI Automation with n8n; No-Code Automation with Make.com; No-Code Automation with Zapier; HighLevel CRM; Prompt Engineering; WordPress Web Page Building & Maintenance.",
       "PORTFOLIO / PROOF OF WORK: 8+ automation projects completed, 300+ hours saved for clients, 30%+ average efficiency gain, 6+ businesses supported. The website's Projects section has real case studies organized by platform — n8n, Make.com, Zapier, and GoHighLevel (examples include an AI voice receptionist, AI appointment booking systems, lead qualification and follow-up automations, AI customer support agents, and content automation).",
       "=== END KNOWLEDGE BASE ===",
-      "CV DOWNLOAD: When someone asks for Bill's CV, resume, or to download his background, tell them a Download CV button will appear right below your reply.",
+      "CV DOWNLOAD: When someone asks for Juan's CV, resume, or to download his background, tell them a Download CV button will appear right below your reply.",
       "BOOKING: Visitors can book a free 30-minute automation call with the 'Book a Free Call' button, or email Bill at " + (CFG.email || "the address in the footer") + ". For pricing, timelines, availability, or specific project quotes, recommend booking the free call (do not invent any figures).",
       "STYLE: Keep replies short (1-3 sentences), warm and professional, plain text only (no markdown). If asked something unrelated to Bill, his work, or automation, politely steer back to how Bill can help."
     ].join(" ");

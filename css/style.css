@@ -1,6 +1,6 @@
 ﻿/* ============================================================
-   BILL MALTO â€” cinematic portfolio
-   Tokens: ink black Â· emerald Â· warm cream Â· condensed display
+   JUAN C R — cinematic portfolio
+   Tokens: ink black Â· emerald · warm cream · condensed display
    ============================================================ */
 
 /* ---------- Fonts (self-hosted) ---------- */
@@ -45,6 +45,14 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 img,svg,video{display:block;max-width:100%}
+.hero__image,.bg-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity .65s,var(--img-transform,transform) .85s ease,filter .85s ease;will-change:opacity,transform,filter}
+.hero__image.is-ready,.bg-image.is-ready{opacity:1;transform:scale(1.08);filter:contrast(1.08) saturate(1.08)}
+.hero__image.is-ready + .hero__fallback,
+.bg-image.is-ready + .bg-fallback{opacity:0;transition:opacity .65s}
+.hero__media::after,
+.pillars__media::after,
+.work__media::after,
+.finale__media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.12),transparent 22%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.08),transparent 18%),linear-gradient(180deg,rgba(255,255,255,.04),transparent 35%,rgba(255,255,255,.05) 65%,transparent);opacity:0.85;mix-blend-mode:screen}
 [hidden]{display:none!important}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}

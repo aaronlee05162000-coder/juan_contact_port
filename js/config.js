@@ -22,14 +22,14 @@ window.SITE_CONFIG = {
      instead of shipping any key to the browser.                  */
   aiChat: {
     endpoint: "https://api.openai.com/v1/chat/completions",
-    proxy:    "https://bill-malto-portfolio.vercel.app/api/chat",  // key lives server-side
+    proxy:    "https://juan-c-portfolio.vercel.app/api/chat",  // key lives server-side
     model:    "gpt-4o-mini",
     apiKey:   (typeof window !== "undefined" && (window.OPENAI_API_KEY || window.GROQ_API_KEY)) || "",
   },
 
   /* ---- CONTACT ---- */
   email:       "maltoyeet@gmail.com",                          // from CV ✓
-  bookingUrl:  "https://calendly.com/automatewithbill/30min",  // your Calendly link ✓
+  bookingUrl:  "https://calendly.com/automatewithjuan/30min",  // your Calendly link ✓
   linkedinUrl: "https://www.linkedin.com/in/your-handle",
   youtubeUrl:  "https://www.youtube.com/@your-handle",
   githubUrl:   "",                                   // optional — leave "" to hide

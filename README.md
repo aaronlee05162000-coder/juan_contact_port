@@ -1,4 +1,4 @@
-# Bill Malto — Cinematic Portfolio
+# Juan C R — Cinematic Portfolio
 
 Award-style scroll-driven portfolio: ink black · emerald · warm cream.
 Fully self-contained — fonts and libraries (Lenis, GSAP ScrollTrigger) are vendored locally, no CDN needed.
@@ -37,14 +37,14 @@ You can also download the .mp4 files into `assets/` and use relative paths like 
 ## What's wired up
 
 - Hero orbit clip scrubbed by scroll (pinned ~2.6 screens), with lerp-smoothed seeking
-- "BILL MALTO" letter-by-letter intro + letters drift in sync with scroll progress
+- "Juan C R" letter-by-letter intro + letters drift in sync with scroll progress
 - Count-up stats strip (IntersectionObserver-triggered)
 - Pinned SERVICES section revealing one platform at a time (click rail also works)
 - PROJECTS grid with sample case-study cards
 - Pinned THREE PILLARS over Clip 2 (AUTOMATE / INTEGRATE / SCALE)
 - WORK cards over Clip 3, finale CTA over Clip 4
 - Scrolling tool marquees, grain overlay, Lenis smooth scrolling
-- Floating "Chat with Bill" widget: quick questions + message → opens the visitor's
+- Floating "Chat with Juan" widget: quick questions + message → opens the visitor's
   email app addressed to you (no backend required; swap in Crisp/Tawk/etc. later if you like)
 - Responsive to mobile; `prefers-reduced-motion` fully respected (no pinning/scrub, static frames)
 
