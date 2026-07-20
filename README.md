@@ -50,6 +50,6 @@ You can also download the .mp4 files into `assets/` and use relative paths like 
 
 ## Notes
 
-- Project cards and stats use **sample/placeholder data** and are labeled as such on the page —
+- Project cards and stats use **sample/placeholder data** and are labeled as such on the page -
   replace them with real work before presenting results as real.
 - Background clips only play while on screen (battery-friendly); the hero clip is scrubbed, never played.

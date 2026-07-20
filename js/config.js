@@ -7,10 +7,10 @@ window.SITE_CONFIG = {
      Paste the final .mp4 URLs here when each render completes.
      Leave "" to show the styled fallback backdrop instead.   */
   videos: {
-    heroOrbit:  "assets/juan2.png",   // hero background image
-    builder:    "assets/Juan4.png",    // Three Pillars background image
-    expert:     "assets/juan3.png",    // Work section background image
-    closer:     "assets/juan11.png",    // Finale background image
+    heroOrbit:  "assets/media/juan2.png",   // hero background image
+    builder:    "assets/media/Juan_working.mp4",    // How I work background video
+    expert:     "assets/media/juan3.png",    // Work section background image
+    closer:     "assets/media/Juan_bye.mp4",    // Finale background video
   },
   videoDuration: 8,   // seconds per clip
 
@@ -37,10 +37,10 @@ window.SITE_CONFIG = {
 
   /* ---- HERO STATS (real figures — ~7 months of project work) ---- */
   stats: [
-    { value: 8,   suffix: "+",  label: "Automation Projects Completed" },
-    { value: 300, suffix: "+",  label: "Hours Saved for Clients" },
+    { value: 58,   suffix: "+",  label: "Automation Projects Completed" },
+    { value: 1700, suffix: "+",  label: "Hours Saved for Clients" },
     { value: 30,  suffix: "%+", label: "Average Efficiency Gain" },
-    { value: 6,   suffix: "+",  label: "Businesses Supported" },
+    { value: 26,   suffix: "+",  label: "Businesses Supported" },
   ],
 
   /* ---- PLATFORM LOGOS ----
@@ -52,6 +52,7 @@ window.SITE_CONFIG = {
     "Make.com":    "assets/logos/make.png",
     "Zapier":      "assets/logos/zapier.png",
     "GoHighLevel": "assets/logos/gohighlevel.png",
+    "Web Applications": "assets/logos/web.jpg",
   },
 
   /* ---- PROJECTS ----
@@ -340,6 +341,88 @@ window.SITE_CONFIG = {
       images: ["assets/projects/ghl/forms-library/forms-dashboard.png", "assets/projects/ghl/forms-library/contact-form.png", "assets/projects/ghl/forms-library/event-registration.png", "assets/projects/ghl/forms-library/webinar-registration.png"],
       sample: false,
     },
+
+    /* ===== WEB APPLICATIONS — new category ===== */
+    {
+      platform: "Web Applications",
+      title: "Rancho Tecate",
+      summary: "Full Stack Developer for a dynamic hospitality website for Rancho Tecate, a premium ranch and event venue in Mexico.",
+      what: "I developed a dynamic hospitality website for Rancho Tecate, a premium ranch and event venue in Mexico. The platform was built using Laravel and Vue.js, combining modern frontend components (lit-html, lit-element) with a scalable backend architecture. The website showcases accommodations, event spaces, experiences, and booking information while providing an engaging, visually rich user experience. Integration with Google Maps enhances location accessibility and user navigation.",
+      tools: ["Laravel", "Vue.js", "jQuery", "Strapi", "API Integration"],
+      impact: "The site delivered a polished hospitality experience with rich booking and location features for guests exploring the venue.",
+      images: ["assets/projects/web_application/Rancho Tecate/1.jpg", "assets/projects/web_application/Rancho Tecate/2.jpg", "assets/projects/web_application/Rancho Tecate/3.jpg", "assets/projects/web_application/Rancho Tecate/4.jpg"],
+      sample: false,
+    },
+    {
+      platform: "Web Applications",
+      title: "Deko Class",
+      summary: "Full Stack Engineer for a modern interior decoration business website focused on product catalogs, brand identity, and customer engagement.",
+      what: "I developed a modern interior decoration business website focused on showcasing home-decor products, textiles, and design solutions. The platform highlights product catalogs, brand identity, and customer engagement while supporting business visibility and lead generation. The website combines aesthetic presentation with usability, helping the company promote interior design services and decorative product offerings effectively online.",
+      tools: ["Vue.js", "Nuxt.js", "Amazon Web Services", "Netlify", "Progressive Web App"],
+      impact: "The website delivered a polished, high-visibility experience that improved product presentation and customer engagement.",
+      images: ["assets/projects/web_application/Deko Class/1.jpg", "assets/projects/web_application/Deko Class/2.jpg", "assets/projects/web_application/Deko Class/3.jpg"],
+      sample: false,
+    },
+    {
+      platform: "Web Applications",
+      title: "Barber Shops",
+      summary: "Full Stack Engineer for a large-scale directory platform serving thousands of barber shops across the United States.",
+      what: "I developed and maintained a large-scale directory platform serving thousands of barber shops across the United States. The application was built using Laravel and PHP, focusing on performance, scalability, and search optimization. The platform allows users to easily search, discover, and access local barber shop listings while providing business owners with visibility and lead opportunities. Key improvements included backend optimization, database performance tuning, SEO structure enhancements, and server configuration using Nginx to ensure fast load times and reliability.",
+      tools: ["Laravel", "PHP", "Redis", "PostgreSQL"],
+      impact: "The platform delivered strong performance, better discoverability, and reliable scaling for a high-volume directory experience.",
+      images: ["assets/projects/web_application/Barber Shops/1.jpg", "assets/projects/web_application/Barber Shops/2.jpg", "assets/projects/web_application/Barber Shops/3.jpg"],
+      sample: false,
+    },
+    {
+      platform: "Web Applications",
+      title: "Smile by Paola Loaiza",
+      summary: "Full Stack Engineer for a healthcare service website for a dental aesthetics clinic specializing in smile design and oral rehabilitation.",
+      what: "I built a healthcare service website for a dental aesthetics clinic specializing in smile design and oral rehabilitation. The platform is designed to showcase treatments, patient testimonials, and clinic credibility while enabling easy consultation requests and online patient engagement. The site focuses on lead generation rather than ecommerce, with features like service pages, contact forms, blog structure, and online payment integration to support patient onboarding and clinic operations.",
+      tools: ["Vue.js", "Nuxt.js", "Amazon Web Services", "Vuetify", "Custom PHP"],
+      impact: "The website delivered a polished, conversion-focused experience that improved patient trust and consultation requests.",
+      images: ["assets/projects/web_application/Smile by Paola Loaiza/1.jpg", "assets/projects/web_application/Smile by Paola Loaiza/2.jpg", "assets/projects/web_application/Smile by Paola Loaiza/3.jpg"],
+      sample: false,
+    },
+    {
+      platform: "Web Applications",
+      title: "Controller Logistics",
+      summary: "Senior Full Stack Engineer for a logistics services platform focused on import/export operations, freight coordination, and supply-chain consulting.",
+      what: "I developed a logistics services platform focused on import/export operations, freight coordination, and supply-chain consulting. The website enables businesses to request quotes, explore logistics solutions, and streamline international shipping processes. The platform is designed for lead generation and operational efficiency, combining service presentation, inquiry workflows, and business credibility to support global trade logistics.",
+      tools: ["Vue.js", "Nuxt.js", "Amazon Web Services", "Netlify", "Progressive Web App"],
+      impact: "The platform delivered a credible, conversion-focused experience that improved quote requests and client engagement for logistics services.",
+      images: ["assets/projects/web_application/Controller Logistics/1.jpg", "assets/projects/web_application/Controller Logistics/2.jpg", "assets/projects/web_application/Controller Logistics/3.jpg"],
+      sample: false,
+    },
+    {
+      platform: "Web Applications",
+      title: "Casa Rosalia",
+      summary: "Full-stack Engineer for a hospitality website focused on accommodation services, guest experience, and tourism engagement.",
+      what: "I developed a hospitality website for a boutique hotel focused on accommodation services, guest experience, and tourism engagement. The platform highlights rooms, amenities, booking information, and brand identity while helping attract travelers and streamline inquiries. The website emphasizes visual presentation, usability, and lead generation, supporting the hotel’s online visibility and reservation workflow.",
+      tools: ["Vue.js", "Nuxt.js", "Amazon Web Services", "Netlify", "Tailwind CSS"],
+      impact: "The website delivered a polished hospitality experience that improved online visibility and guest inquiries.",
+      images: ["assets/projects/web_application/Casa Rosalia/1.jpg", "assets/projects/web_application/Casa Rosalia/2.jpg", "assets/projects/web_application/Casa Rosalia/3.jpg", "assets/projects/web_application/Casa Rosalia/4.jpg"],
+      sample: false,
+    },
+    {
+      platform: "Web Applications",
+      title: "Borrero & Illidge Advisors",
+      summary: "Front end Engineer for a corporate consulting website for a legal advisory firm specializing in business crisis management and insolvency solutions.",
+      what: "I developed a corporate consulting website for a legal advisory firm specializing in business crisis management and insolvency solutions. The platform showcases professional services, expertise, industry insights, and client resources while supporting lead generation and brand credibility. The site emphasizes clear service presentation, professional design, and user engagement to help businesses access advisory support efficiently.",
+      tools: ["Vue.js", "Nuxt.js", "Tailwind CSS", "Yii2", "PHP"],
+      impact: "The website delivered a credible, professional experience that strengthened the firm’s online presence and client inquiries.",
+      images: ["assets/projects/web_application/Borrero and Illidge Advisors/1.jpg", "assets/projects/web_application/Borrero and Illidge Advisors/2.jpg", "assets/projects/web_application/Borrero and Illidge Advisors/3.jpg", "assets/projects/web_application/Borrero and Illidge Advisors/4.jpg"],
+      sample: false,
+    },
+    {
+      platform: "Web Applications",
+      title: "Paramount Global – Internal Platforms Development",
+      summary: "Senior Software Engineer for internal platforms at one of the world’s largest entertainment companies.",
+      what: "Worked as a Senior Software Engineer building and maintaining internal platforms for one of the world’s largest entertainment companies. Delivered full-stack development across multiple projects, collaborating with enterprise teams to build scalable solutions within complex infrastructure environments.",
+      tools: ["Java", "Vue.js", "React", "Next.js", "MySQL"],
+      impact: "The work supported enterprise-grade internal tools with scalable architecture and reliable delivery in a complex environment.",
+      images: ["assets/projects/web_application/Paramount/1.jpg", "assets/projects/web_application/Paramount/3.jpg"],
+      sample: false,
+    },
   ],
 
   /* ---- CERTIFICATIONS ----
@@ -358,7 +441,7 @@ window.SITE_CONFIG = {
   /* ---- CHAT QUICK ANSWERS (scripted replies in the chat widget) ---- */
   chatAnswers: {
     automate: "Almost anything repetitive: lead capture & follow-up, client onboarding, data entry between tools, reporting, notifications, CRM updates, and AI-powered steps like qualification or drafting. If it happens the same way twice, it can probably be automated.",
-    projects: "Scroll to the Projects section for featured builds on n8n, Make.com, Zapier, and GoHighLevel — or use the button below to jump straight there.",
-    tools:    "My core stack: n8n, Make.com, Zapier, and GoHighLevel — plus AI agents, APIs, webhooks, and whatever CRM or spreadsheet your business already runs on.",
+    projects: "Scroll to the Projects section for featured builds on n8n, Make.com, Zapier, GoHighLevel, and Web Applications — or use the button below to jump straight there.",
+    tools:    "My core stack: n8n, Make.com, Zapier, GoHighLevel, and modern web app development — plus AI agents, APIs, webhooks, and whatever CRM or spreadsheet your business already runs on.",
   },
 };
